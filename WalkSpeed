@@ -1,0 +1,9 @@
+--// Simple WalkSpeed
+
+local speed = 100 -- Pon aqui la velocidad que quieres
+ 
+spawn(function()
+while wait() do
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = speed
+end
+end)
