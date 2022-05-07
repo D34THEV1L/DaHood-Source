@@ -1,0 +1,10 @@
+--// JumpPower
+
+
+local jump = 100 -- Pon aqui el poder de salto que quieres
+ 
+spawn(function()
+while wait() do
+game.Players.LocalPlayer.Character.Humanoid.JumpPower = jump
+end
+end)
