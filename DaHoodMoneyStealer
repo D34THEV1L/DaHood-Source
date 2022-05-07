@@ -1,0 +1,76 @@
+-- Money Taker
+-- GodMode 
+loadstring(game:HttpGet('https://raw.githubusercontent.com/D34THEV1L/DaHood-Source/main/Full-GodMode-NoUseless'))()
+--// Variables:
+local players = game:GetService("Players")
+local lp = players.LocalPlayer
+
+--// Bypass their shitty 'teleport detect'
+
+local mt = getrawmetatable(game)
+local backup = mt.__namecall
+setreadonly(mt, false)
+
+mt.__namecall = newcclosure(function(x, ...)
+   local Args = {...}
+   local NamecallMethod = getnamecallmethod()
+
+   if not checkcaller() and NamecallMethod == "FireServer" and Args[1] == "TeleportDetect" then
+       return true
+   end
+
+   return backup(x, ...)
+end)
+setreadonly(mt, true)
+--// Load gui:
+local ScreenGui = Instance.new("ScreenGui")
+local x = Instance.new("TextLabel")
+local status = Instance.new("TextLabel")
+
+ScreenGui.Name = " "
+ScreenGui.Parent = game.CoreGui
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+x.Name = "x"
+x.Parent = ScreenGui
+x.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+x.BorderSizePixel = 0
+x.Size = UDim2.new(0, 200, 0, 18)
+x.Font = Enum.Font.SourceSansLight
+x.Text = "Dahood Money HSBC"
+x.TextColor3 = Color3.fromRGB(255, 255, 255)
+x.TextSize = 18.000
+
+status.Name = "status"
+status.Parent = ScreenGui
+status.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+status.BorderSizePixel = 0
+status.Position = UDim2.new(0, 0, 0.0283911675, 0)
+status.Size = UDim2.new(0, 200, 0, 18)
+status.Font = Enum.Font.SourceSansLight
+status.Text = "Status: Loading"
+status.TextColor3 = Color3.fromRGB(255, 255, 255)
+status.TextSize = 18.000
+
+local function setstatus(text)
+status.Text = "Status: " .. tostring(text)
+end
+
+--// Start the auto farm:
+setstatus("Tping to safe spot")
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-621.166626, 7.99984741, -931.343201)
+wait(1)
+
+while wait() do
+   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-621.166626, 7.99984741, -931.343201)
+   setstatus("Searching for money.")
+   for index, money in pairs(workspace.Ignored.Drop:GetChildren()) do
+       if money.Name == 'MoneyDrop' then
+           game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = money.CFrame
+           wait(1)
+           fireclickdetector(money.ClickDetector, 2)
+           setstatus("Got money.")
+           wait(2)
+       end
+   end
+end
