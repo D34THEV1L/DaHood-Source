@@ -1,0 +1,24 @@
+-- Line Esp kirito
+
+if t == true then
+		kiriot22ESP.Tracers = true
+	elseif t == false then
+		kiriot22ESP.Tracers = false
+	end
+end)
+
+for i,v in pairs(game:GetService("Workspace").Ignored.Shop:GetChildren()) do
+	local FirstButton = AutoBuyPage.AddButton(v.Name, function()
+		local Pos = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+		local Teleport = v:FindFirstChild("Head")
+		if Teleport then
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Teleport.CFrame
+			local CD = v:FindFirstChild("ClickDetector")
+			if CD then
+				wait(0.75)
+				fireclickdetector(CD)
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Pos
+			end
+		end
+	end)
+end
