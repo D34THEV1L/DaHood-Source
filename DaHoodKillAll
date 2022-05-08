@@ -1,0 +1,38 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/D34THEV1L/DaHood-Source/main/LowGfx"))()
+game.StarterGui:SetCore("SendNotification", {Title = "HSBC", Text = "Low gfx ha sido ejecutado para tener mas fps. Espere . . .", Icon = "rbxassetid://505845268", Duration = 50, Button1 = "Okay!"})
+wait(10)
+Knife = true
+	repeat
+
+		local cor = coroutine.wrap(function()
+			if not game.Players.LocalPlayer.Character:FindFirstChild("[Knife]") then
+				takingbag = true
+				local cor = coroutine.wrap(function()
+
+					game.Players.LocalPlayer.Character:MoveTo(Vector3.new(-278.063446, 21.75, -240.871841))
+				end)
+				cor()
+				wait(1)
+
+				fireclickdetector(workspace.Ignored.Shop["[Knife] - $150"].ClickDetector, 4)
+				game.Players.LocalPlayer.Backpack["[Knife]"].Handle.Size = Vector3.new(10, 10, 10)
+				wait(0.5)
+				game.Players.LocalPlayer.Backpack["[Knife]"].Parent = game.Players.LocalPlayer.Character
+				takingbag = false
+			end
+		end)
+		cor()
+		if takingbag == false then
+			for i, v  in pairs(game.Players:GetPlayers()) do
+				if v.Character:FindFirstChild("Knife") == nil and v.Character:FindFirstChildOfClass("ForceField") == nil and v.Character ~= game.Players.LocalPlayer.Character then
+					local chars = v.Character
+					if game.Players.LocalPlayer.Character:FindFirstChild("[Knife]") then
+						game.Players.LocalPlayer.Character["[Knife]"]:Activate()
+					end
+					game.Players.LocalPlayer.Character:MoveTo(v.Character.UpperTorso.Position)
+			end
+							wait(0.005)
+			end
+		end
+		wait()
+until Knife == false
