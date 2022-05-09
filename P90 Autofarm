@@ -1,7 +1,3 @@
-game.StarterGui:SetCore("SendNotification", {Title = "HSBC", Text = "P90 Autofarm ha sido iniciado.", Duration = 60
-
-
-
 
 
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(465.91626, 48.0685081, -622.589539)
