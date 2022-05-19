@@ -1,6 +1,13 @@
 wait(5)
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/cypherdh/GodMode-V3/main/script"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/NoUGotbannedlol/DaHub/main/God%20V3"))() 
+
+
+wait(5)
+
+game.StarterGui:SetCore("SendNotification", {Title = "HSBC", Text = "GODMODE V3 ha sido activasdo. Gracias a Da Hub por el script", Duration = 60
+
+})
 
 
 
