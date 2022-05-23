@@ -1,0 +1,22 @@
+--[[
+dedos#0025
+
+* AutoArrest
+*Auto Server Hop
+*Auto Execute
+
+Para que funcione debes de usar un exploit compatible con UNC
+-------------------------------------------------------------
+https://scriptunc.org/
+-------------------------------------------------------------
+No niño, no funciona en JJSploit
+
+]]--
+
+
+
+queue_on_teleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/D34THEV1L/DaHood-Source/main/Da%20Hood_AutoArrest'))()")
+
+
+
+loadstring(game:HttpGet('https://raw.githubusercontent.com/D34THEV1L/DaHood-Source/main/Da%20Hood_AutoArrest'))()
